@@ -1,7 +1,7 @@
 <?php
 
   $db_host = "localhost";
-  $db_name = "tichatooldb";
+  $db_name = "yourdb";
   $db_username = "root";
   $db_password = "";
 
@@ -21,27 +21,7 @@ function clean($string)
 
 
 
-/*
-    //email exists function
-    function Email_Exists($email)
-    {
-        //$con = mysqli_connect('localhost' , 'root' , "" ,  'tichatooldb');
-        
-        global $con;
-        $sql = " SELECT * FROM users WHERE  user_email = ? LIMIT 1";
-        $stmt= $con->prepare($sql);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result =$stmt->get_result() ;
-        if(fetch_data($result))
-        {
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
-*/
+
 
 function escape($string)
 {
@@ -74,21 +54,7 @@ function fetch_data($result)
     return mysqli_fetch_assoc($result);
 }
 
- //role check exists function function
- function is_Admin()
- {
-  
-     $sql = " SELECT * FROM users WHERE  Role ='{$_SESSION["Role"]}'";
-     $result = Query($sql);
-     $row = mysqli_fetch_array($result);
-     //$row =fetch_data($result);
-     if(($row['Role'])==="A")
-     {
-         return true;
-     }else{
-        return false;
-     }
- }
+
 
  function varified()
  {
